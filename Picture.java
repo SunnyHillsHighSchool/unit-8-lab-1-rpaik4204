@@ -367,8 +367,30 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-
-   
+//Written by: Ryan Paik
+//This method will mirror an image from top to bottom
+public void mirrorTopToBottom()
+{
+  //Create a 2D array of pixels
+  Pixel[][]pixels = this.getPixels2D();
+  //Create a top pixel variable
+  Pixel topPixel = null;
+  //Create a bottom pixel variable
+  Pixel botPixel = null;
+  //Loop through the rows
+  for(int row = 0; row < pixels.length / 2; row++)
+  {
+    //Loop through the columns
+    for(int col = 0; col < pixels[0].length; col++)
+    {
+      //Assign values to the pixel variables
+      topPixel = pixels[row][col];
+      botPixel = pixels[(pixels.length - 1) - row][col];
+      //Copy the top pixel's color to the bot pixel
+      botPixel.setColor(topPixel.getColor());
+    }
+  }
+}
 
 
 } // this } is the end of class Picture, put all new methods before this
